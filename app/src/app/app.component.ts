@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
         filter((hasPermission) => hasPermission)
       )
       .subscribe(() => {
-        this.cameraSpan?.nativeElement.click()
+        document.getElementById('cameraFileInput')?.click();
       })
   }
 
