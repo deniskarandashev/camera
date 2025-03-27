@@ -1,0 +1,9 @@
+
+<button (click)="isOpen = true; openCamera()">Camera</button>
+
+
+<ng-container *ngIf="isOpen">
+    <span #cameraSpan></span>
+  <!-- The hidden file `input` for opening the native camera -->
+  <input id="cameraFileInput" accept="image/*" capture="environment" type="file" [hidden]="true" (change)="onCapture($event)" />
+</ng-container>
