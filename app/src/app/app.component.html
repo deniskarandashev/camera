@@ -5,5 +5,5 @@
 <ng-container *ngIf="isOpen">
     <span #cameraSpan></span>
   <!-- The hidden file `input` for opening the native camera -->
-  <input id="cameraFileInput" accept="image/*, android/force-camera" type="file" [hidden]="true" (change)="onCapture($event)" />
+  <input id="cameraFileInput" accept="image/*, android/force-camera" capture="environment" type="file" [hidden]="true" (change)="onCapture($event)" />
 </ng-container>
