@@ -1,5 +1,5 @@
 
-<button (click)="isOpen = true; openCamera()">Camera</button>
+<button (click)="isOpen = true; openCamera()">Camera 1</button>
 
 
 <ng-container *ngIf="isOpen">
@@ -7,3 +7,6 @@
   <!-- The hidden file `input` for opening the native camera -->
   <input id="cameraFileInput" accept="image/*, android/force-camera" capture="environment" type="file" [hidden]="true" (change)="onCapture($event)" />
 </ng-container>
+
+<button (click)="openCamera()">Camera 2</button>
+<video autoplay></video>
