@@ -12,7 +12,7 @@
 
 </ng-container>
 
-<input #fileInput hidden type="file" accept="image/" (change)="onFileSelected($event)" />
+<input #fileInput hidden type="file" accept="image/jpeg, image/png" (change)="onFileSelected($event)" />
 <br>
 <img *ngIf="imageSrc" [src]="imageSrc" alt="img" width="200">
 
