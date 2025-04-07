@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
     } else {
       this.imageSrc = this._sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(this.image))
       this.photoCaptured.emit(this.image)
-      this.imageSrc = undefined
+      // this.imageSrc = undefined
     }
   }
 
