@@ -39,11 +39,11 @@ export class AppComponent implements OnInit {
     navigator.mediaDevices
     .getUserMedia({ video: true })
     .then(() => {
-      setTimeout(() => {
+      // setTimeout(() => {
         const cameraFileInput = document.getElementById('cameraFileInput') as HTMLInputElement
         cameraFileInput.value = ''
         cameraFileInput.click()
-      }, 0)
+      // }, 0)
     })
     .catch((error) => {
       console.log('==========================')
