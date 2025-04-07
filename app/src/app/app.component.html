@@ -1,5 +1,6 @@
 
-<button (click)="isOpen = true; openCamera()">Camera 1</button>
+<button (click)="isOpen = true; openCamera()">Camera</button>
+<button (click)="openGallery()">Gallery</button>
 
 
 <ng-container *ngIf="isOpen">
@@ -11,4 +12,8 @@
 
 </ng-container>
 
-<img *ngIf="imageSrc"[src]="imageSrc" alt="img">
+<input #fileInput hidden type="file" accept="image/*, .heic, .heif, .pdf" (change)="onFileSelected($event)" />
+
+<img *ngIf="imageSrc" [src]="imageSrc" alt="img">
+
+

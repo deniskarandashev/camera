@@ -10,6 +10,7 @@ import { take, filter, Observable, defer } from 'rxjs';
 export class AppComponent implements OnInit {
   @Output() photoCaptured: EventEmitter<Blob> = new EventEmitter()
   @ViewChild('cameraSpan') cameraSpan: ElementRef<HTMLSpanElement> | undefined
+  @ViewChild('fileInput') fileInput!: ElementRef
   image: Blob | undefined
   imageSrc: SafeUrl | undefined
 
@@ -53,6 +54,14 @@ export class AppComponent implements OnInit {
       // const msg = this._translate.instant('msg.permission-denied')
       // this._notifier.danger(msg, msg, 5000)
     })
+  }
+
+  protected onFileSelected(event: Event): void {
+    this.onCapture(event)
+  }
+
+  openGallery() {
+    this.fileInput.nativeElement.click()
   }
 
   onCapture(event: Event): void {
