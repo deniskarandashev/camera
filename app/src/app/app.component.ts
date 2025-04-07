@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   @Output() photoCaptured: EventEmitter<Blob> = new EventEmitter()
   @ViewChild('cameraSpan') cameraSpan: ElementRef<HTMLSpanElement> | undefined
   @ViewChild('fileInput') fileInput!: ElementRef
+  @ViewChild('cameraFileInput') cameraFileInput!: ElementRef
   image: Blob | undefined
   imageSrc: SafeUrl | undefined
 
@@ -41,7 +42,8 @@ export class AppComponent implements OnInit {
     .getUserMedia({ video: true })
     .then(() => {
       // setTimeout(() => {
-        const cameraFileInput = document.getElementById('cameraFileInput') as HTMLInputElement
+        // const cameraFileInput = document.getElementById('cameraFileInput') as HTMLInputElement
+        const cameraFileInput = this.cameraFileInput.nativeElement as HTMLInputElement
         cameraFileInput.value = ''
         cameraFileInput.click()
       // }, 0)
