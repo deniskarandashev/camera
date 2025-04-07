@@ -27,14 +27,32 @@ export class AppComponent implements OnInit {
   }
 
   openCamera() {
-    this.checkPermission()
-      .pipe(
-        take(1),
-        filter((hasPermission) => hasPermission)
-      )
-      .subscribe(() => {
-        document.getElementById('cameraFileInput')?.click();
-      })
+    // this.checkPermission()
+    //   .pipe(
+    //     take(1),
+    //     filter((hasPermission) => hasPermission)
+    //   )
+    //   .subscribe(() => {
+    //     document.getElementById('cameraFileInput')?.click();
+    //   })
+
+    navigator.mediaDevices
+    .getUserMedia({ video: true })
+    .then(() => {
+      setTimeout(() => {
+        const cameraFileInput = document.getElementById('cameraFileInput') as HTMLInputElement
+        cameraFileInput.value = ''
+        cameraFileInput.click()
+      }, 0)
+    })
+    .catch((error) => {
+      console.log('==========================')
+      console.log('==========================')
+      console.log('==========================')
+      console.log(error)
+      // const msg = this._translate.instant('msg.permission-denied')
+      // this._notifier.danger(msg, msg, 5000)
+    })
   }
 
   onCapture(event: Event): void {
